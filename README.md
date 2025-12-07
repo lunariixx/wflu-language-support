@@ -14,4 +14,4 @@ Adds syntax highlighting and variable recognition for **WFLU (`.wflu`) files**, 
 - Works automatically for simple messages and choice/plural blocks  
 
 WFLU Syntax:
-![example](images/wflu-syntax.png)  
+![example](images/wflu-syntax.webp)  
