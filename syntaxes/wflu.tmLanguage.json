@@ -3,28 +3,90 @@
   "name": "WFLU",
   "patterns": [
     {
-      "name": "variable.assignment.wflu",
-      "match": "^[a-zA-Z_][a-zA-Z0-9_]*\\s*="
+      "name": "comment.line.number-sign.wflu",
+      "match": "^\\s*#.*$"
     },
     {
-      "name": "keyword.operator.choice.wflu",
-      "match": "->|\\*|\\[one\\]|\\[other\\]"
-    },
-    {
-      "name": "punctuation.section.block.end.wflu",
-      "match": "\\}"
-    },
-    {
-      "name": "string.unquoted.wflu",
-      "begin": "(?<=\\=\\s)",
-      "end": "$",
+      "name": "meta.choice-block.wflu",
+      "begin": "^\\s*([a-zA-Z_][a-zA-Z0-9_.]*)\\s*(=)\\s*(->)\\s*$",
+      "beginCaptures": {
+        "1": { "name": "entity.name.tag.wflu" },
+        "2": { "name": "keyword.operator.assignment.wflu" },
+        "3": { "name": "keyword.operator.choice.wflu" }
+      },
+      "end": "^\\s*(\\})\\s*$",
+      "endCaptures": {
+        "1": { "name": "punctuation.section.block.end.wflu" }
+      },
       "patterns": [
         {
-          "name": "variable.wflu",
-          "match": "\\{[a-zA-Z_][a-zA-Z0-9_]*\\}"
+          "name": "meta.choice-option.one.wflu",
+          "match": "^\\s*\\[one\\]\\s*(.*)$",
+          "captures": {
+            "0": { "name": "keyword.control.choice.one.wflu" },
+            "1": { 
+              "name": "string.unquoted.wflu",
+              "patterns": [
+                {
+                  "name": "variable.other.wflu",
+                  "match": "\\{[a-zA-Z_][a-zA-Z0-9_]*\\}"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "meta.choice-option.other.wflu",
+          "match": "^\\s*(\\*)(\\[other\\])\\s*(.*)$",
+          "captures": {
+            "1": { "name": "keyword.operator.default.wflu" },
+            "2": { "name": "keyword.control.choice.other.wflu" },
+            "3": { 
+              "name": "string.unquoted.wflu",
+              "patterns": [
+                {
+                  "name": "variable.other.wflu",
+                  "match": "\\{[a-zA-Z_][a-zA-Z0-9_]*\\}"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "meta.choice-option.custom.wflu",
+          "match": "^\\s*(\\*)?(\\[[^\\]]+\\])\\s*(.*)$",
+          "captures": {
+            "1": { "name": "keyword.operator.default.wflu" },
+            "2": { "name": "keyword.control.choice.custom.wflu" },
+            "3": { 
+              "name": "string.unquoted.wflu",
+              "patterns": [
+                {
+                  "name": "variable.other.wflu",
+                  "match": "\\{[a-zA-Z_][a-zA-Z0-9_]*\\}"
+                }
+              ]
+            }
+          }
         }
       ]
+    },
+    {
+      "name": "meta.simple-assignment.wflu",
+      "match": "^\\s*([a-zA-Z_][a-zA-Z0-9_.]*)\\s*(=)\\s*(.*)$",
+      "captures": {
+        "1": { "name": "entity.name.tag.wflu" },
+        "2": { "name": "keyword.operator.assignment.wflu" },
+        "3": { 
+          "name": "string.unquoted.wflu",
+          "patterns": [
+            {
+              "name": "variable.other.wflu",
+              "match": "\\{[a-zA-Z_][a-zA-Z0-9_]*\\}"
+            }
+          ]
+        }
+      }
     }
-  ],
-  "repository": {}
+  ]
 }
