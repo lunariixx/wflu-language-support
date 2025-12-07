@@ -1,7 +1,7 @@
 {
   "name": "wflu-language-support",
   "publisher": "lunariixx",
-  "displayName": "WFLU Language Support",
+  "displayName": "Wyvern Fluent Language",
   "description": "Add support for Wyvern Fluent Language (WFLU)",
   "version": "1.0.0",
   "engines": {
