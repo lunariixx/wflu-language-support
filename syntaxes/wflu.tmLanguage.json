@@ -1,0 +1,30 @@
+{
+  "scopeName": "source.wflu",
+  "name": "WFLU",
+  "patterns": [
+    {
+      "name": "variable.assignment.wflu",
+      "match": "^[a-zA-Z_][a-zA-Z0-9_]*\\s*="
+    },
+    {
+      "name": "keyword.operator.choice.wflu",
+      "match": "->|\\*|\\[one\\]|\\[other\\]"
+    },
+    {
+      "name": "punctuation.section.block.end.wflu",
+      "match": "\\}"
+    },
+    {
+      "name": "string.unquoted.wflu",
+      "begin": "(?<=\\=\\s)",
+      "end": "$",
+      "patterns": [
+        {
+          "name": "variable.wflu",
+          "match": "\\{[a-zA-Z_][a-zA-Z0-9_]*\\}"
+        }
+      ]
+    }
+  ],
+  "repository": {}
+}

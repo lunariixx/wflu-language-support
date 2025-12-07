@@ -1,0 +1,26 @@
+{
+  "name": "wflu-language-support",
+  "publisher": "lunariixx",
+  "displayName": "WFLU Language Support",
+  "description": "Add support for Wyvern Fluent Language (WFLU)",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.106.1"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "wflu",
+      "aliases": ["Wyvern Fluent Language", "wflu"],
+      "extensions": [".wflu"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "wflu",
+      "scopeName": "source.wflu",
+      "path": "./syntaxes/wflu.tmLanguage.json"
+    }]
+  }
+}
