@@ -3,7 +3,7 @@
   "publisher": "lunariixx",
   "displayName": "WFLU Language Support",
   "description": "Add support for Wyvern Fluent Language (WFLU)",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.106.1"
   },
@@ -22,5 +22,9 @@
       "scopeName": "source.wflu",
       "path": "./syntaxes/wflu.tmLanguage.json"
     }]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lunariixx/wflu-language-support.git"
   }
 }
